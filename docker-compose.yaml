@@ -1,0 +1,19 @@
+name: epos_practice
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: my_postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 26102002
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    command: ["postgres", "-c", "listen_addresses=*"]
+
+volumes:
+  postgres_data:
